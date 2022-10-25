@@ -1,0 +1,15 @@
+aiohttp
+aiofiles
+ffmeg-python
+gTTS
+dnspython
+future
+googletrans==4.0.0-rc1
+motor
+pillow
+psutil
+pykeyboard
+pyrogram==1.4.16
+python-arq
+requests
+search-engine-parser
