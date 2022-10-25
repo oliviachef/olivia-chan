@@ -2,21 +2,32 @@
 # telegram: https://telegram.me/oliviant,
 # copyright: olivia-chan 2022
 
-import asyncio
 import importlib
 import re
-from contextlib import closing, suppress
+import threading
+from sys import argv
+from typing import Optional
 
-from uvloop import install
-from pyrogram import filters, idle
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
-from olivia import(
-  BOT_NAME,
-  BOT_USERNAME,
-  LOG_GROUP_ID,
-  aiohttpsession,
-  app,
-  log,
+from telegram import Update, ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.error import (TelegramError, Unauthorized, BadRequest, TimedOut, ChatMigrated, NetworkError)
+from telegram.ext import (
+  CallbackContext,
+  filters
 )
-from olivia.modules import ALL_MODULES
+from telegram.ext.dispatcher import DispatcherHandlerStop
+from telegram.utils.helpers import escape_markdown
+
+from olivia import (
+  KInit,
+  dispatcher,
+  updater,
+  TOKEN,
+  WEBHOOK,
+  OWNER_ID,
+  CERT_PATH,
+  PORT,
+  URL,
+  log,
+  telethn,
+  OliviaINIT
+)
