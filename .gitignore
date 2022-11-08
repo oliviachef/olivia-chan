@@ -1,0 +1,5 @@
+**/__pycache__
+olivia/config.py
+.vscode/
+venv
+*.session
